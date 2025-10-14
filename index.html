@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>F1 Trivia Challenge</title>
+
+  <!-- External libraries (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/umd/uuidv4.min.js"></script>
+
+  <!-- Test harness (Mocha + Chai) - used only by tests.html -->
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-left">
+      <span class="flag">🏁</span>
+      <h1>F1 Trivia Challenge</h1>
+    </div>
+    <div class="header-right">
+      <span id="auth-user" class="auth-user"></span>
+      <button id="btn-logout" class="btn small hidden">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Auth / Registration -->
+    <section id="auth-section" class="card auth-card">
+      <h2>Welcome — sign in or register</h2>
+      <div class="auth-forms">
+        <form id="login-form" class="auth-form">
+          <input type="text" id="login-username" placeholder="Username" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="submit" class="btn">Log in</button>
+        </form>
+
+        <form id="register-form" class="auth-form">
+          <input type="text" id="reg-username" placeholder="New username" required />
+          <input type="password" id="reg-password" placeholder="New password" required />
+          <button type="submit" class="btn outline">Register</button>
+        </form>
+      </div>
+      <small class="muted">This demo uses localStorage for authentication (not production secure).</small>
+    </section>
+
+    <!-- Quiz UI -->
+    <section id="quiz-section" class="hidden">
+      <div class="quiz-top">
+        <div class="progress-info">
+          <div id="q-index">Question 1 of 10</div>
+          <div id="score">Score: 0</div>
+        </div>
+        <div class="progress-bar-outer">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="quiz-card card">
+        <h3 id="question-text">Who holds the record for the most Formula 1 World Championships?</h3>
+        <div id="options" class="options-list"></div>
+      </div>
+
+      <div class="quiz-controls">
+        <button id="btn-prev" class="btn small outline">Previous</button>
+        <button id="btn-next" class="btn small">Next</button>
+      </div>
+
+      <div class="bottom-actions">
+        <button id="btn-restart" class="btn ghost">Restart Quiz</button>
+        <button id="btn-export" class="btn">Export Quiz JSON</button>
+        <button id="btn-open-manager" class="btn outline">Open Manager</button>
+      </div>
+
+      <div class="stats card small-card">
+        <canvas id="scoreChart" width="300" height="150"></canvas>
+      </div>
+    </section>
+
+    <!-- Manager (CRUD for stored quizzes) -->
+    <section id="manager-section" class="card hidden manager">
+      <h2>Quiz Manager</h2>
+
+      <form id="create-question-form" class="create-form">
+        <input id="q-title" placeholder="Question text" required />
+        <input id="opt-1" placeholder="Option 1 (correct if marked below)" required />
+        <input id="opt-2" placeholder="Option 2" required />
+        <input id="opt-3" placeholder="Option 3" />
+        <input id="opt-4" placeholder="Option 4" />
+        <label>
+          <span>Correct option index (1-4)</span>
+          <input id="correct-index" type="number" min="1" max="4" value="1" required />
+        </label>
+        <div class="form-row">
+          <button class="btn" type="submit">Add Question</button>
+          <button id="btn-clear" type="button" class="btn outline">Clear All</button>
+        </div>
+      </form>
+
+      <div class="manager-list">
+        <h3>Stored Questions</h3>
+        <div class="controls-row">
+          <label>Filter: <input id="filter-text" placeholder="text..." /></label>
+          <label>Sort by: 
+            <select id="sort-by">
+              <option value="created">Newest</option>
+              <option value="text">Question text</option>
+            </select>
+          </label>
+        </div>
+        <ul id="question-list" class="question-list"></ul>
+      </div>
+
+      <div class="manager-actions">
+        <button id="btn-back-to-quiz" class="btn ghost">Back to Quiz</button>
+        <button id="btn-export-all" class="btn">Export all JSON</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>Built with ❤️ — Mobile-first, LocalStorage persistence, Chart.js, uuid & Mocha tests.</small>
+  </footer>
+
+  <!-- Small template for option -->
+  <template id="option-template">
+    <button class="option btn option-btn"></button>
+  </template>
+</body>
+</html>
