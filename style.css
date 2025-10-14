@@ -1,0 +1,99 @@
+:root{
+    --bg1: #111214;
+    --accent: #e11d48;
+    --muted: #9aa0a6;
+    --card-bg: #ffffff;
+    --card-shadow: 0 6px 18px rgba(11,12,14,0.12);
+  }
+  
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;
+    background: linear-gradient(135deg,#8b0f25 0%, #0c0f14 70%);
+    color:#0b0c0e;
+    -webkit-font-smoothing:antialiased;
+  }
+  
+  .container{
+    padding:16px;
+    max-width:980px;
+    margin: 18px auto;
+  }
+  
+  /* header */
+  .app-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    color:#fff;
+    max-width:980px;
+    margin: 0 auto;
+  }
+  .header-left{display:flex;align-items:center;gap:10px}
+  .header-left h1{margin:0;font-size:1.2rem;font-weight:600}
+  .flag{font-size:1.6rem}
+  .header-right{display:flex;gap:8px;align-items:center}
+  .auth-user{font-weight:600}
+  .hidden{display:none}
+  
+  /* cards */
+  .card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+    border-radius:12px;
+    box-shadow:var(--card-shadow);
+    padding:18px;
+    margin-bottom:18px;
+  }
+  
+  /* auth */
+  .auth-card h2{margin:0 0 8px 0}
+  .auth-forms{display:flex;flex-direction:column;gap:12px}
+  .auth-form{display:flex;gap:8px}
+  .auth-form input{flex:1;padding:10px;border-radius:8px;border:1px solid #e6e7eb}
+  .btn{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+  .btn.small{padding:6px 10px;font-size:0.9rem}
+  .btn.outline{background:transparent;border:1px solid rgba(0,0,0,0.08);color:var(--accent)}
+  .btn.ghost{background:transparent;color:#fff;border:1px dashed rgba(255,255,255,0.15)}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+  .small-card{padding:12px;margin-top:12px}
+  
+  /* quiz */
+  .quiz-top{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+  .progress-info{display:flex;justify-content:space-between;color:#fff;margin-bottom:6px;font-weight:600}
+  .progress-bar-outer{height:12px;background:rgba(255,255,255,0.12);border-radius:999px;overflow:hidden}
+  .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#111827,#f97316)}
+  .quiz-card{padding:22px}
+  .options-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+  .option-btn{
+    text-align:left;padding:14px;border-radius:10px;border:1px solid #e6e7eb;background:#fff;
+    font-size:1rem;
+  }
+  .option-btn.correct{border:2px solid #16a34a}
+  .option-btn.incorrect{border:2px solid #ef4444;opacity:.85}
+  
+  .quiz-controls{display:flex;gap:10px;justify-content:center;margin-top:12px}
+  .bottom-actions{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+  .muted{color:var(--muted);font-size:0.85rem}
+  
+  /* manager */
+  .manager .create-form{display:flex;flex-direction:column;gap:8px}
+  .create-form input{padding:10px;border-radius:8px;border:1px solid #e6e7eb}
+  .form-row{display:flex;gap:8px}
+  .question-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .question-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;border:1px solid #eef2f6}
+  .controls-row{display:flex;gap:8px;align-items:center;margin:8px 0;flex-wrap:wrap}
+  
+  /* footer */
+  .app-footer{color:#fff;text-align:center;padding:12px;opacity:.9}
+  
+  /* Responsive */
+  @media(min-width:720px){
+    .auth-forms{flex-direction:row}
+    .quiz-top{flex-direction:row;align-items:center;justify-content:space-between}
+    .container{padding:28px}
+    .quiz-card{padding:32px}
+  }
+  
