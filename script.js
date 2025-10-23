@@ -1,12 +1,7 @@
 const questions = [
   {
     question: "Who holds the record for the most Formula 1 World Championships?",
-    answers: [
-      "Michael Schumacher",
-      "Lewis Hamilton",
-      "Both are tied with 7",
-      "Ayrton Senna"
-    ],
+    answers: ["Michael Schumacher", "Lewis Hamilton", "Both are tied with 7", "Ayrton Senna"],
     correct: 2
   },
   {
@@ -14,7 +9,47 @@ const questions = [
     answers: ["McLaren", "Ferrari", "Red Bull", "Mercedes"],
     correct: 1
   },
-  // Add 8+ more questions...
+  {
+    question: "Which circuit is known as 'The Temple of Speed'?",
+    answers: ["Silverstone", "Monza", "Hungaroring", "Monaco"],
+    correct: 1
+  },
+  {
+    question: "In which year did the Formula 1 World Championship begin?",
+    answers: ["1946", "1955", "1950", "1960"],
+    correct: 2
+  },
+  {
+    question: "Who has the most Grand Prix victories?",
+    answers: ["Michael Schumacher", "Max Verstappen", "Sebastian Vettel", "Lewis Hamilton"],
+    correct: 3
+  },
+  {
+    question: "What is the minimum weight of an F1 car (including driver) for 2024?",
+    answers: ["696 kg", "734 kg", "798 kg", "850 kg"],
+    correct: 2
+  },
+  {
+    question: "What is the shortest circuit on the F1 Calendar?",
+    answers: ["Monaco", "Zandvoort", "Red Bull Ring", "Singapore"],
+    correct: 0
+  },
+  {
+    question: "Who was the youngest driver to win an F1 World Championship?",
+    answers: ["Fernando Alonso", "Max Verstappen", "Niki Lauda", "Ayrton Senna"],
+    correct: 1
+  },
+  {
+    question: "How many points does the race winner receive?",
+    answers: ["15", "20", "30", "25"],
+    correct: 3
+  },
+  {
+    question: "Which company supplies tires for all F1 teams?",
+    answers: ["Goodyear", "Michelin", "Pirelli", "Bridgestone"],
+    correct: 2
+  },
+  // Add more questions...
 ];
 
 let currentQuestion = 0;
@@ -44,7 +79,7 @@ function checkAnswer(i) {
     score++;
     Swal.fire("Correct!", "Nice job!", "success");
   } else {
-    Swal.fire("Wrong!", "Better luck next one!", "error");
+    Swal.fire("Wrong!", "Better luck on the next one!", "error");
   }
 
   currentQuestion++;
@@ -57,6 +92,7 @@ function checkAnswer(i) {
 
 function finishQuiz() {
   questionText.textContent = `You scored ${score} / ${questions.length}!`;
+  saveGameStats(score, timeTaken);
   answersDiv.innerHTML = "";
   scoreDisplay.textContent = "";
   restartBtn.classList.remove("hidden");
@@ -84,3 +120,15 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
 
 loadQuestion();
 
+function saveGameStats(score, timeTaken) {
+  const games = JSON.parse(localStorage.getItem("f1trivia_games")) || [];
+
+  const newGame = {
+    date: new Date().toLocaleDateString(),
+    score,
+    timeTaken
+  };
+
+  games.push(newGame);
+  localStorage.setItem("f1trivia_games", JSON.stringify(games));
+}

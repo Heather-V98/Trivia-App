@@ -39,9 +39,30 @@ body {
     color: #fff;
     cursor: pointer;
     margin-top: 0.8rem;
+    margin-left: 0.8rem;
     font-weight: bold;
   }
+
+  #answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    justify-items: center;
+    margin-top: 1rem;
+  }
   
+  #logoutBtn {
+    background: #ef4444;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    margin-right: 0.8rem;
+    font-weight: bold;
+  }
+
   button.secondary {
     background: #374151;
   }
@@ -62,6 +83,7 @@ body {
     position: fixed;
     top: 0;
     background: #111827;
+    margin-left: 0.8rem;
   }
   
   @media (max-width: 600px) {
@@ -71,4 +93,9 @@ body {
     }
   }
   
+  @media (min-width: 600px) {
+    #answers {
+        grid-template-columns: repeat(2, auto);
+    }
+  }
   
