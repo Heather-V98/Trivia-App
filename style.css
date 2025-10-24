@@ -99,3 +99,129 @@ body {
     }
   }
   
+  /* ================================
+   STATS PAGE STYLES
+================================ */
+.stats-page {
+    background: #101010;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .stats-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .stats-wrap h1,
+  .stats-wrap h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .stats-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+    margin: 15px 0;
+  }
+  
+  @media (min-width: 700px) {
+    .stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .stat-box {
+    text-align: center;
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+  }
+  
+  .stat-box .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  
+  .stat-box .label {
+    font-weight: 500;
+    color: #bbb;
+  }
+  
+  .muted {
+    color: #9aa0a6;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    margin-top: 12px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+  }
+  
+  th {
+    background: #e10600;
+    color: white;
+  }
+  
+  .actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .btn {
+    background: #e10600;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background: #c00500;
+  }
+  
+  .btn.secondary {
+    background: #303236;
+  }
+  
+  .btn.secondary:hover {
+    background: #444;
+  }
+
+/* Timer style */
+.timer {
+    font-weight: 700;
+    margin: 6px 0 10px 0;
+  }
+  
+  /* Optional: when time is low, turn it red */
+  .timer.low {
+    color: #e10600;
+  }
+  

@@ -4,26 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>F1 Trivia Challenge</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- SweetAlert2 (optional, used by script.js if present) -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+  <!-- App Header -->
   <header class="header">
-    <h1>🏎️ F1 Trivia Challenge</h1>
-    <button id="logoutBtn">Logout</button>
+    <h1>F1 Trivia Challenge</h1>
+    <button id="logoutBtn" aria-label="Logout">Logout</button>
   </header>
 
-  <div class="quiz-container">
-    <h2>Test your Formula 1 knowledge!</h2>
-    <div id="question-container">
-      <p id="question-text"></p>
-      <div id="answers"></div>
-    </div>
-    <p id="progress"></p>
-    <p id="score"></p>
-    <button id="restartBtn" class="hidden">Restart Quiz</button>
-  </div>
+  <!-- Main Quiz Container -->
+  <main class="quiz-container" style="margin-top: 80px;">
+    <section class="card">
+      <p id="progress" class="muted">Question 1 of N</p>
+      <p id="score" class="muted">Score: 0</p>
+    <p id="timer" class="timer">Time: 00:15</p>
 
+    <h2 id="question-text">Loading question…</h2>
+    <div id="answers" class="answers"></div>
+
+      <div id="answers" class="answers">
+        <!-- Answer buttons put in by script.js -->
+      </div>
+
+      <button id="restartBtn" class="btn hidden" type="button">Restart Quiz</button>
+    </section>
+  </main>
+
+  <!-- App Script -->
   <script src="script.js"></script>
 </body>
 </html>
+
