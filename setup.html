@@ -2,38 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setup | F1 Trivia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Setup | Trivia</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="setup-container">
-    <h1>🎯 Choose Your Quiz Settings</h1>
+  <main class="setup-container">
+    <h1>🎯 Trivia Setup</h1>
 
-    <label>Number of Questions</label>
-    <input type="number" id="numQuestions" min="1" max="20" value="10" />
+    <!-- Number of Questions -->
+    <label for="numQuestions">Number of Questions</label>
+    <input type="number" id="numQuestions" min="1" max="50" value="10" />
 
-    <label>Category</label>
-    <select id="category"></select>
-
-    <label>Difficulty</label>
-    <select id="difficulty">
-      <option value="">Any</option>
-      <option value="easy">Easy</option>
-      <option value="medium">Medium</option>
-      <option value="hard">Hard</option>
+    <!-- Category (from API) -->
+    <label for="category">Category</label>
+    <select id="category">
+      <option value="">Loading categories…</option>
     </select>
 
-    <label>Question Type</label>
-    <select id="type">
-      <option value="">Any</option>
-      <option value="multiple">Multiple Choice</option>
-      <option value="boolean">True / False</option>
-    </select>
+    <!-- Difficulty -->
+    <fieldset class="fieldset">
+      <legend>Difficulty</legend>
+      <label><input type="radio" name="difficulty" value="" checked> Any</label>
+      <label><input type="radio" name="difficulty" value="easy"> Easy</label>
+      <label><input type="radio" name="difficulty" value="medium"> Medium</label>
+      <label><input type="radio" name="difficulty" value="hard"> Hard</label>
+    </fieldset>
 
-    <button id="startBtn">Start Quiz</button>
-  </div>
+    <!-- Question Type -->
+    <fieldset class="fieldset">
+      <legend>Question Type</legend>
+      <label><input type="radio" name="qtype" value="" checked> Any</label>
+      <label><input type="radio" name="qtype" value="boolean"> True / False</label>
+      <label><input type="radio" name="qtype" value="multiple"> Multiple Choice</label>
+    </fieldset>
 
+    <button id="startBtn" class="btn">Start Trivia</button>
+
+    <p id="setupMsg" class="muted" aria-live="polite"></p>
+  </main>
+
+  <!-- Important: plain script tag, at the end of body -->
   <script src="setup.js"></script>
 </body>
 </html>

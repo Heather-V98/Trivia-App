@@ -26,7 +26,7 @@ body {
   .auth-box input {
     width: 100%;
     padding: 0.8rem;
-    margin: 0.5rem 0;
+    margin: 0.5rem -0.8rem;
     border: none;
     border-radius: 0.5rem;
   }
@@ -99,9 +99,7 @@ body {
     }
   }
   
-  /* ================================
-   STATS PAGE STYLES
-================================ */
+  /*STATS PAGE STYLES*/
 .stats-page {
     background: #101010;
     color: white;
@@ -220,8 +218,75 @@ body {
     margin: 6px 0 10px 0;
   }
   
-  /* Optional: when time is low, turn it red */
+  /*when time is low, turn it red */
   .timer.low {
     color: #e10600;
   }
+
+  /*Setup page*/
+.setup-container {
+    max-width: 520px;
+    margin: 40px auto;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    display: grid;
+    gap: 12px;
+  }
+
+  /* Compact "Number of Questions" input with aligned label */
+label[for="numQuestions"] {
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 500;
+    color: #ccc;
+  }
+  
+  #numQuestions {
+    width: 100px;              
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #141414;
+    color: #fff;
+    display: inline-block;     
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+  
+  
+  .setup-container h1 { text-align: center; margin: 0 0 6px; }
+  
+  .setup-container input[type="number"],
+  .setup-container select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #141414;
+    color: #fff;
+  }
+  
+  .fieldset {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .fieldset legend { padding: 0 6px; color: #bbb; }
+  .fieldset label { margin-right: 12px; }
+  
+  .btn {
+    background: #e10600;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn:hover { background: #c00500; }
+  
+  .muted { color: #9aa0a6; font-size: 0.9rem; }
   
